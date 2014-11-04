@@ -1,11 +1,8 @@
 (ns publicBlog.routes.postpage
   (:require [compojure.core :refer :all]
-            [hiccup.form :refer :all]
-            [hiccup.element :refer [link-to]]
             [publicBlog.routes.auth :refer :all]
             [publicBlog.layout :as layout]
             [noir.response :as resp]
-            [noir.session :as session]
             [noir.util.route :refer [restricted]]
             [noir.validation :as vali]
             [publicBlog.db.core :refer [save-post
