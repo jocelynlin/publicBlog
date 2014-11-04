@@ -14,7 +14,7 @@ Create your own dbspec.txt file that contains the following:
 
 	{:db "blog", :user "user", :password "****"}
 
-Edit line 6 of the schema.clj file so the "~/dbspec.txt" contains the path of where you saved the dbspec.txt file.
+Replacing, the user and password with your own username and password.  Edit line 6 of the schema.clj file so the "~/dbspec.txt" contains the path of where you saved the dbspec.txt file.
 
 ## Creating the tables
 
