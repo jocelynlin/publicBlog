@@ -1,0 +1,37 @@
+{% extends "templates/base.html" %}
+{% block content %}
+    {% for item in getpost %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{item.title}}</h1>
+                        <h2 class="subheading">{{item.description}}</h2>
+                        <span class="meta">{{item.date|date:longDate}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>{{item.content}}</p>
+                {% endfor %}
+    <h5>Tags:</h5>
+    {% for item in showtags %}
+    <span class="meta"><a href="{{servlet-context}}/tag/{{item.tag_id}}">{{item.tag_name}}</a> |</span>
+    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+{% endblock %}

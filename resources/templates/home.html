@@ -1,0 +1,48 @@
+{% extends "templates/base.html" %}
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Blog Name</h1>
+                        <hr class="small">
+                        <span class="subheading">This is a blog template</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="container">
+   <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            {% for item in messages %}
+            <div class="post-preview">
+                <a href="{{servlet-context}}/post/{{item.post_id}}">
+                    <h2>{{item.title}}</h2>
+                    <h3>{{item.description}}</h3></a>
+                <p class="post-meta">Posted on {{item.date|date:longDate}}</p>
+                <hr>
+            </div>
+            <br>
+            {% endfor %}
+        {% if error %}
+        <p class = "error">{{error}}</p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+<div class="text-center">
+    <div class="text-center">
+        <ul class="pager">
+            {% for item in pages %}
+            <li><a href="{{servlet-context}}/pages/{{item.pagenumber}}">{{item.pagenumber}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

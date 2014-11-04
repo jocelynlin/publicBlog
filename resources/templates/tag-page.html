@@ -1,0 +1,72 @@
+{% extends "templates/base.html" %}
+{% block content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<div class="container">
+   <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {% if error %}
+        <p class = "error">{{error}}</p>
+        {% endif %}
+    <div class="int-nav">
+        <a href="/edit-page">Go to edit page</a>
+        <br>
+        <a href="/tag-page">Go to tag page</a>
+        <br>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="span8">
+        {% for item in lastpost %}
+            <h4>Title: {{item.title}}</h4>
+            <h5>Post ID: {{item.post_id}}</h5>
+            <h5>Description: {{item.description}}</h5>
+            <date>Date: {{item.date|date:"MM-dd-yyyy"}}</date> <br>
+            <br>
+            <p>{{item.content}}</p>
+            <p>Public? {{item.public}}</p>
+            {% endfor %}
+            <h5>Current associated tags:</h5>
+            <ul>
+                {% for item in showtags %}
+                <li>{{item.tag_name}}</li>
+                {% endfor %}
+            </ul>
+    </div>
+    <div class="span8">
+            <h4>Existing tags:</h4>
+            <ul>
+                {% for item in tags %}
+                <li>{{item.tag_name}}</li>
+                {% endfor %}
+            </ul>
+    </div>
+    <div class="span8">
+        <form action="/tag-page" method="POST">
+            <p>
+                Post ID:
+                <input type="text" name="post_id" value="{{post_id}}" />
+            </p>
+            <p>
+                Tag name:
+                <input type="text" name="tag_name" value="{{tag_name}}" />
+            </p>
+          <input type="submit" value="Associate Tag with Post" />
+        </form>
+    </div>
+</div>
+       </div>
+    </div>
+{% endblock %}

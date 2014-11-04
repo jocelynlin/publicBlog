@@ -1,0 +1,54 @@
+{% extends "templates/base.html" %}
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Registration</h1>
+                        <hr class="small">
+                        <span class="subheading">Create a user id and password</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<div class="container">
+   <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {% if error %}
+        <p class = "error">{{error}}</p>
+        {% endif %}
+
+        <form action="/register" method="POST">
+            <p>
+                User ID:
+                <input id="id"
+                       name="id"
+                       type="text"
+                       value="{{id}}"><br>
+                <div class="error">{{id-error}}</div>
+            </p>
+            <p>
+                Password:
+                <input id="pass"
+                       name="pass"
+                       type="password">
+                <div class="error">{{pass-error}}</div>
+            </p>
+            <p>
+                Retype Password:
+                <input id="pass1"
+                       name="pass1"
+                       type="password">
+            </p>
+                <input type="submit" value="Create Account">
+        </form>
+       </div>
+  </div>
+</div>
+{% endblock %}

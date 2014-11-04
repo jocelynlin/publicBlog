@@ -1,0 +1,45 @@
+html,
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+    padding-top: 40px;
+}
+
+form {
+  	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+    padding-top: 40px;
+}
+
+.jumbotron {
+    background-image:url('http://i.imgur.com/vFWK3Up.jpg');
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron .container {
+    position: relative;
+    top: 100px;
+}
+
+.jumbotron h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 48px;
+}
+
+.error {
+    color: red;
+}
+
+.blogpost {
+    background-color: #E3E3E3;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+span {
+  text-decoration: underline;
+}

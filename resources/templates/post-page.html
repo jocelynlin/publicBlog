@@ -1,0 +1,51 @@
+{% extends "templates/base.html" %}
+{% block content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div class="container">
+   <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {% if error %}
+        <p class = "error">{{error}}</p>
+        {% endif %}
+    <div class="int-nav">
+        <a href="/edit-page">Go to edit page</a>
+        <br>
+        <a href="/tag-page">Go to tag page</a>
+        <br>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="span8">
+        <form action="/post-page" method="POST">
+            <p>
+                Title:
+                <input type="text" name="title" value="{{title}}" />
+            </p>
+            <p> Short Description:
+                <br>
+                <textarea rows="2" cols="50" name="description">{{description}}</textarea>
+            </p>
+            <p>
+                Content:
+                <br>
+                <textarea rows="8" cols="50" name="content">{{content}}</textarea>
+            </p>
+          <input type="submit" value="Submit Post" />
+        </form>
+           </div>
+           </div>
+    </div>
+</div>
+{% endblock %}

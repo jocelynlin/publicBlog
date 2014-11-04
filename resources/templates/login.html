@@ -1,0 +1,41 @@
+{% extends "templates/base.html" %}
+{% block content %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Login</h1>
+                        <hr class="small">
+                        <span class="subheading">Login Page</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+<div class="container">
+   <div class="row">
+       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {% if error %}
+        <p class = "error">{{error}}</p>
+        {% endif %}
+
+        <form action="/login" method="POST">
+            <p>
+                User ID:
+                <input type="text" name="id" value="{{id}}">
+            </p>
+            <p>
+                Password:
+                <input type="password" name="pass" value="{{pass}}">
+            </p>
+                <input type="submit" value="Login">
+        </form>
+       </div>
+  </div>
+</div>
+{% endblock %}
